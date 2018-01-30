@@ -88,3 +88,50 @@ class ViewController: UIViewController {
     }
     
 }
+
+
+/*
+ func searchWebserviceCall(categoryID:String,searchKey:String,deviceUDID:String){
+     
+            
+            let dict = ["category_id": categoryID,"keyword":searchKey,"deviceid":deviceUDID]
+            let session = URLSession.shared
+            let Url = String(format: "http://ingtesting.com/games/api/search/")
+            guard let serviceUrl = URL(string: Url) else { return }
+            var request = URLRequest(url: serviceUrl)
+            request.httpMethod = "POST"
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+                
+            } catch let error {
+                print(error.localizedDescription)
+            }
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+                guard error == nil else {
+                    return
+                }
+                guard let data = data else {
+                    return
+                }
+                do {
+                    //create json object from data
+                    if let jsonDict = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                        print(jsonDict)
+                        
+                        let responseDict = (jsonDict as NSDictionary).mutableCopy() as! NSMutableDictionary
+                        let resultVal:Bool =  (responseDict.object(forKey: "status") as? Bool)!
+                        
+                        
+                    }
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            })
+            task.resume()
+       
+        
+        
+    }
+*/
