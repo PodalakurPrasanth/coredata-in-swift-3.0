@@ -54,6 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
+    
+      func alertLikeController(forViewController viewController: UIViewController) -> UIViewController {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .overCurrentContext
+        navigationController.navigationBar.isHidden = true
+        
+        return navigationController
+    }
 
    
 }
